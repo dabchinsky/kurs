@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Мини игры</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+
+    <div class="section tetris">
+		<video height="100%" width="100%" autoplay muted loop id="myVideo">
+			<source src="./videos/tetris.mp4" type="video/mp4">
+		</video>
+    	<div class="card">
+        	<img src="tetris.jpg" alt="Изображение 1">
+        	<h2>Тетрис</h2>
+       	 	<button>Играть</button>
+      	</div>
+    </div>
+
+    <div class="section snake">
+      <video height="100%" width="100%" autoplay muted loop id="myVideo">
+        <source src="./videos/snake.mp4" type="video/mp4">
+      </video>
+      <div class="card">
+        <img src="snake.jpg" alt="Изображение 2">
+        <h2>Змейка</h2>
+        <button>Играть</button>
+      </div>
+    </div>
+
+    <div class="section bird">
+      <video height="100%" width="100%" autoplay muted loop id="myVideo">
+        <source src="./videos/bird.mp4" type="video/mp4">
+      </video>
+      <div class="card">
+        <img src="bird.jpg" alt="Изображение 3">
+        <h2>Flappy bird</h2>
+        <button>Играть</button>
+      </div>
+    </div>
+
+    <div class="section arkanoid">
+      <video height="100%" width="100%" autoplay muted loop id="myVideo">
+        <source src="./videos/arkanoid.mp4" type="video/mp4">
+      </video>
+      <div class="card">
+        <img src="arkanoid.jpg" alt="Изображение 4">
+        <h2>Арканоид</h2>
+        <button>Играть</button>
+      </div>
+    </div>
+
+    <script>
+      // Обработчик клика на кнопке
+      	var buttons = document.querySelectorAll('.card button');
+      	buttons.forEach(function(button) {
+        	button.addEventListener('click', function() {
+            var section = button.closest('.section');
+            console.log(section.classList)
+            var frame = document.createElement('iframe');
+            frame.setAttribute('src', `${section.classList[1]}/${section.classList[1]}.html`);
+            frame.setAttribute('width', '99.5%');
+            frame.setAttribute('height', '100%');
+            section.innerHTML = '';
+            section.appendChild(frame);
+			    });
+		    });
+	</script>
+  </body>
+</html>
